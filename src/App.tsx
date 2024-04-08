@@ -1,15 +1,17 @@
 import React from "react";
 import "./App.css";
-import YoutubeForm from "./components/YoutubeForm";
+// import YoutubeForm from "./components/YoutubeForm";
 import { Provider } from "react-redux";
 import store from "./components/redux/store";
+import FormikContainer from "./components/FormikContainer";
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      {/* <div className="App">
         <YoutubeForm />
-      </div>
+      </div> */}
+      <FormikContainer />
     </Provider>
   );
 }
