@@ -58,6 +58,7 @@ form button:disabled {
   cursor: pointer;
 }
 
-form .radio-item {
+form .radio-item,
+form .checkbox-item {
   display: inline-block;
 }

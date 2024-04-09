@@ -1,36 +1,22 @@
-import React from "react";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 import FormikControl from "./FormikControl";
+import validationSchema, { checkboxValidation } from "./validationSchema";
+import { checkboxOptions, radioOptions, selectOptions } from "./formOptions";
 
 const initialValues = {
   email: "",
   description: "",
   selectOption: "",
+  radioOption: "",
+  checkboxOption: [],
 };
 
-const selectOptions = [
-  { key: "Select", value: "" },
-  { key: "Option 1", value: "option1" },
-  { key: "Option 2", value: "option2" },
-];
-
-const radioOptions = [
-  { key: "R Option 1", value: "rOption1" },
-  { key: "R Option 2", value: "rOption2" },
-  { key: "R Option 3", value: "rOption3" },
-];
-
-const onSubmit = (values: any) => {
+const onSubmit = (values: any, onSubmitProps: any) => {
+  let i = 0;
+  while (i < 1000000000) i++;
+  onSubmitProps.setSubmitting(false);
   console.log("Form Values", values);
 };
-
-const validationSchema = Yup.object({
-  email: Yup.string().email().required("Required"),
-  description: Yup.string().required("Required"),
-  selectOption: Yup.string().required("Required"),
-  radioOption: Yup.string().required("Required"),
-});
 
 function FormikContainer() {
   return (
@@ -38,10 +24,11 @@ function FormikContainer() {
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
-      validateOnChange={false}
+      // validateOnChange={false}
+      validateOnMount
     >
       {(formik: any) => {
-        console.log(formik.values);
+        console.log(formik);
         return (
           <Form>
             <FormikControl
@@ -67,7 +54,19 @@ function FormikContainer() {
               name="radioOption"
               options={radioOptions}
             />
-            <button type="submit">Submit</button>
+            <FormikControl
+              control="checkbox"
+              label="Checkbox Options"
+              name="checkboxOption"
+              options={checkboxOptions}
+              validate={checkboxValidation}
+            />
+            <button
+              type="submit"
+              disabled={formik.isSubmitting || !formik.isValid}
+            >
+              {formik.isSubmitting ? "Submitting..." : "Submit"}
+            </button>
           </Form>
         );
       }}

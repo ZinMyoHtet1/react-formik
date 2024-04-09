@@ -1,6 +1,7 @@
 import React from "react";
 import { RadioProps } from "../FormikType";
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
+import ErrorText from "../ErrorText";
 
 function Radio({ label, name, options, ...rest }: RadioProps) {
   return (
@@ -24,6 +25,10 @@ function Radio({ label, name, options, ...rest }: RadioProps) {
           ));
         }}
       </Field>
+      <ErrorMessage
+        name={name}
+        render={(error) => <ErrorText errorMsg={error} />}
+      />
     </div>
   );
 }
