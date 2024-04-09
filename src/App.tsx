@@ -4,14 +4,16 @@ import "./App.css";
 import { Provider } from "react-redux";
 import store from "./components/redux/store";
 import FormikContainer from "./components/FormikContainer";
+import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
+import CourseEnrollment from "./components/CourseEnrollment";
 
 function App() {
   return (
     <Provider store={store}>
-      {/* <div className="App">
-        <YoutubeForm />
-      </div> */}
-      <FormikContainer />
+      {/* <LoginForm /> */}
+      {/* <RegisterForm /> */}
+      <CourseEnrollment />
     </Provider>
   );
 }

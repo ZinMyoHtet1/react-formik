@@ -1,4 +1,5 @@
 import CheckBox from "./FormComponents/CheckBox";
+import DatePicker from "./FormComponents/DatePicker";
 import Input from "./FormComponents/Input";
 import Radio from "./FormComponents/Radio";
 import Select from "./FormComponents/Select";
@@ -17,6 +18,8 @@ function FormikControl({ control, ...rest }: FormContolProps) {
       return <Radio {...rest} />;
     case "checkbox":
       return <CheckBox {...rest} />;
+    case "datepicker":
+      return <DatePicker {...rest} />;
     default:
       return null;
   }

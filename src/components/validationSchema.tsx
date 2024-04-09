@@ -5,6 +5,7 @@ const validationSchema = Yup.object({
   selectOption: Yup.string().required("Required"),
   radioOption: Yup.string().required("Required"),
   // checkboxOption: Yup.array().required("Required"),
+  birthday: Yup.date().required("Required").nullable(),
 });
 
 export const checkboxValidation = (checkboxOption: []) => {

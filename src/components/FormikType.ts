@@ -1,3 +1,5 @@
+import React from "react";
+
 export type InputProps = {
   label: string;
   name: string;
@@ -24,6 +26,11 @@ export type RadioProps = {
   label: string;
   name: string;
   options: SelectOptionProps[];
+} & React.ComponentProps<"input">;
+
+export type DatePickerProps = {
+  label: string;
+  name: string;
 } & React.ComponentProps<"input">;
 
 type ControlProps = {

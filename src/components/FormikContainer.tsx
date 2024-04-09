@@ -9,6 +9,7 @@ const initialValues = {
   selectOption: "",
   radioOption: "",
   checkboxOption: [],
+  birthday: null,
 };
 
 const onSubmit = (values: any, onSubmitProps: any) => {
@@ -60,6 +61,11 @@ function FormikContainer() {
               name="checkboxOption"
               options={checkboxOptions}
               validate={checkboxValidation}
+            />
+            <FormikControl
+              control="datepicker"
+              label="Select your birthday"
+              name="birthday"
             />
             <button
               type="submit"
